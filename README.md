@@ -11,5 +11,23 @@
 ## 3. Navodila za namestitev in zagon
 1. Klonirajte repozitorij:
    ```bash
+   git clone [https://github.com/azbe-bit/MalcaZdej]
+   (https://github.com/azbe-bit/MalcaZdej)
+  1. Klonirajte repozitorij:
+   ```bash
    git clone [https://github.com/TVOJE_UPORABNISKO_IME/MalcaZdej.git](https://github.com/TVOJE_UPORABNISKO_IME/MalcaZdej.git)
    cd MalcaZdej
+   
+   python -m venv .venv
+   .venv\Scripts\Activate.ps1
+
+   pip install -r requirements.txt
+
+   python manage.py makemigrations
+   python manage.py migrate
+
+   python manage.py createsuperuser
+
+   python manage.py runserver
+
+   ```
