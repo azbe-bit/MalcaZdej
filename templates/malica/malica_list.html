@@ -1,7 +1,17 @@
 {% extends "base.html" %}
 {% block title %}Ponudba malic – MalcaZdej{% endblock %}
 {% block content %}
-<h1>{% if sola %}Ponudba – {{ sola.naziv }}{% else %}Vse malice{% endif %}</h1>
+
+<div class="hero">
+    <h1>{% if sola %}🏫 {{ sola.naziv }}{% else %}Danasnja ponudba malic{% endif %}</h1>
+    <p>
+        {% if sola %}
+            Trenutna ponudba za {{ sola.kraj }}
+        {% else %}
+            Nimaš nastavljene šole — prikazane so vse malice.
+        {% endif %}
+    </p>
+</div>
 
 <div class="filters">
     <a href="?" class="{% if not izbrana_kategorija %}active{% endif %}">Vse</a>
@@ -21,7 +31,10 @@
             </div>
         </a>
     {% empty %}
-        <p class="muted">Trenutno ni objavljenih malic.</p>
+        <div class="empty-state">
+            <span class="emoji">🍽️</span>
+            <p>Trenutno ni objavljenih malic.</p>
+        </div>
     {% endfor %}
 </div>
 {% endblock %}

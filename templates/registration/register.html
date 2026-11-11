@@ -1,13 +1,16 @@
 {% extends "base.html" %}
 {% block title %}Registracija – MalcaZdej{% endblock %}
 {% block content %}
-<div class="card form-card">
-    <h1>Registracija</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn">Ustvari račun</button>
-    </form>
-    <p class="muted">Že imaš račun? <a href="{% url 'login' %}">Prijavi se</a></p>
+<div class="auth-wrapper">
+    <div class="card form-card">
+        <h1>🎉 Ustvari račun</h1>
+        <p class="muted small" style="margin-top: -6px; margin-bottom: 20px;">Izberi svojo šolo, da vidiš pravo ponudbo.</p>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn">Ustvari račun</button>
+        </form>
+        <p class="muted small center" style="margin-top: 16px;">Že imaš račun? <a href="{% url 'login' %}">Prijavi se</a></p>
+    </div>
 </div>
 {% endblock %}
