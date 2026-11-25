@@ -50,7 +50,7 @@ def dodaj_malice(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ("malice", "0003_alter_malica_options_alter_profiluporabnika_options_and_more"),
+        ("malice", "0004_malica_slika"),
     ]
 
     operations = [
