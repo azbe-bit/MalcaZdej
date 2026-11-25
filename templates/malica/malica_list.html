@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="hero">
-    <h1>{% if sola %}🏫 {{ sola.naziv }}{% else %}Danasnja ponudba malic{% endif %}</h1>
+    <h1>{% if sola %}🏫 {{ sola.naziv }}{% else %}Današnja ponudba malic{% endif %}</h1>
     <p>
         {% if sola %}
             Trenutna ponudba za {{ sola.kraj }}
@@ -23,6 +23,15 @@
 <div class="grid">
     {% for malica in malice %}
         <a href="{% url 'malica_detail' malica.pk %}" class="card malica-card">
+            {% if malica.slika %}
+                <div class="malica-img">
+                    <img src="{{ malica.slika.url }}" alt="{{ malica.naziv }}" loading="lazy">
+                </div>
+            {% else %}
+                <div class="malica-img placeholder">
+                    {% if malica.kategorija == 'topla' %}🍲{% elif malica.kategorija == 'hladna' %}🥪{% elif malica.kategorija == 'vegetarijanska' %}🥗{% elif malica.kategorija == 'brezglutenska' %}🌾{% else %}🍽️{% endif %}
+                </div>
+            {% endif %}
             <h2>{{ malica.naziv }}</h2>
             <p class="opis">{{ malica.opis|truncatewords:18 }}</p>
             <div class="malica-meta">

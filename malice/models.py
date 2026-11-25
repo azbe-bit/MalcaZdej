@@ -26,6 +26,7 @@ class Malica(models.Model):
     naziv = models.CharField(max_length=100)
     opis = models.TextField()
     cena = models.DecimalField(max_digits=6, decimal_places=2)
+    slika = models.ImageField(upload_to="malice/", blank=True, null=True)
     datum_objave = models.DateTimeField(auto_now_add=True)
     kategorija = models.CharField(max_length=20, choices=KATEGORIJE, blank=True)
     sola = models.ForeignKey(

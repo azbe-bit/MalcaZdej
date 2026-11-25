@@ -3,6 +3,15 @@
 {% block content %}
 <a href="{% url 'malica_list' %}" class="back-link">← Nazaj na seznam</a>
 <div class="card detail-card">
+    {% if malica.slika %}
+        <div class="detail-img">
+            <img src="{{ malica.slika.url }}" alt="{{ malica.naziv }}">
+        </div>
+    {% else %}
+        <div class="detail-img placeholder">
+            {% if malica.kategorija == 'topla' %}🍲{% elif malica.kategorija == 'hladna' %}🥪{% elif malica.kategorija == 'vegetarijanska' %}🥗{% elif malica.kategorija == 'brezglutenska' %}🌾{% else %}🍽️{% endif %}
+        </div>
+    {% endif %}
     <h1>{{ malica.naziv }}</h1>
     {% if malica.sola %}<p class="school-line">🏫 {{ malica.sola.naziv }}, {{ malica.sola.kraj }}</p>{% endif %}
     <p class="description">{{ malica.opis }}</p>
